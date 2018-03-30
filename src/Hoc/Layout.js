@@ -8,9 +8,9 @@ class Layout extends Component {
   };
 
   toggleSideNav = () => {
-    this.setState(state => ({
-      showNav: !state.showNav
-    }));
+    this.setState({
+      showNav: !this.state.showNav
+    });
   };
 
   render() {

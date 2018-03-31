@@ -4,9 +4,11 @@ import { Link } from "react-router-dom";
 import { URL } from "../../../config";
 import "./newsList.css";
 import Button from "../Buttons/buttons";
+import CardInfo from "../CardInfo/CardInfo";
 class NewsList extends Component {
   state = {
     items: [],
+    teams: [],
     start: this.props.start,
     end: this.props.amount + this.props.start,
     amount: this.props.amount
@@ -32,6 +34,11 @@ class NewsList extends Component {
             <div>
               <div className="newsList_item">
                 <Link to={`/articles/${item.id}`}>
+                  <CardInfo
+                    teams={this.state.teams}
+                    teamId={item.team}
+                    date={item.date}
+                  />
                   <h2>{item.title}</h2>
                 </Link>
               </div>
@@ -46,6 +53,11 @@ class NewsList extends Component {
   };
 
   request = (start, end) => {
+    if (this.state.teams.length < 1) {
+      fetch(`${URL}/teams`)
+        .then(res => res.json())
+        .then(teams => this.setState({ teams }));
+    }
     fetch(`${URL}/articles?_start=${start}&_end=${end}`)
       .then(res => res.json())
       .then(data =>

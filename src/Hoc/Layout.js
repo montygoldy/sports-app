@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Header from "../components/Header/Header";
+import Footer from "../components/Footer/footer";
 import "./layout.css";
 
 class Layout extends Component {
@@ -17,6 +18,7 @@ class Layout extends Component {
     return (
       <div>
         <Header showNav={this.state.showNav} toggleNav={this.toggleSideNav} />
+        <Footer />
       </div>
     );
   }

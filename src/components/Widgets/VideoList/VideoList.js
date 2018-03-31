@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./videoList.css";
 import { URL } from "../../../config";
 import Button from "../Buttons/buttons";
-
+import VideoListTemplate from "./videoListTemplate";
 class VideoList extends Component {
   state = {
     teams: [],
@@ -18,6 +18,40 @@ class VideoList extends Component {
         <strong>NBA</strong>Videos
       </h3>
     ) : null;
+  };
+
+  componentWillMount() {
+    this.request(this.state.start, this.state.end);
+  }
+
+  request = (start, end) => {
+    if (this.state.teams.length < 1) {
+      fetch(`${URL}/teams`)
+        .then(res => res.json())
+        .then(teams => this.setState({ teams }));
+    }
+
+    fetch(`${URL}/videos?_start=${start}&_end=${end}`)
+      .then(res => res.json())
+      .then(data => this.setState({ videos: [...this.state.videos, ...data] }));
+  };
+
+  renderVideos = () => {
+    let template = null;
+    switch (this.props.type) {
+      case "card":
+        template = (
+          <VideoListTemplate
+            data={this.state.videos}
+            teams={this.state.teams}
+          />
+        );
+
+        break;
+      default:
+        template = null;
+    }
+    return template;
   };
 
   loadMore = () => {};
@@ -38,6 +72,7 @@ class VideoList extends Component {
     return (
       <div className="videosList_wrapper">
         {this.renderTitle()}
+        {this.renderVideos()}
         {this.renderButton()}
       </div>
     );

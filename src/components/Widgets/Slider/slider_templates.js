@@ -11,7 +11,7 @@ const SliderTeamplates = props => {
     infinite: true,
     arrows: true,
     speed: 1000,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 4000,
     slidesToShow: 1,
     slidesToScroll: 1
   };

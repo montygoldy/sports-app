@@ -33,7 +33,9 @@ class VideoList extends Component {
 
     fetch(`${URL}/videos?_start=${start}&_end=${end}`)
       .then(res => res.json())
-      .then(data => this.setState({ videos: [...this.state.videos, ...data] }));
+      .then(data =>
+        this.setState({ videos: [...this.state.videos, ...data], start, end })
+      );
   };
 
   renderVideos = () => {
@@ -54,17 +56,20 @@ class VideoList extends Component {
     return template;
   };
 
-  loadMore = () => {};
+  loadMore = () => {
+    let end = this.state.end + this.state.amount;
+    this.request(this.state.end, end);
+  };
 
   renderButton = () => {
     return this.props.loadmore ? (
       <Button
         type="loadmore"
-        loadmore={this.loadMore}
+        loadMore={this.loadMore}
         text="Load More Videos"
       />
     ) : (
-      <Button type="linkTo" text="More Videos" linkTo="/videos/" />
+      <Button type="linkTo" text="More videos" linkTo="/videos" />
     );
   };
 

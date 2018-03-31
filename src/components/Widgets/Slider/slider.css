@@ -1,0 +1,37 @@
+.featured_item {
+  position: relative;
+}
+
+.featured_item a {
+  position: absolute;
+  bottom: 40px;
+  width: 100%;
+  text-decoration: none;
+  right: 0;
+}
+
+.featured_image {
+  height: 600px;
+  background-size: cover !important;
+  background-repeat: no-repeat;
+}
+
+.featured_title {
+  color: white;
+  padding: 20px;
+  font-weight: 300;
+  font-size: 48px;
+  box-sizing: border-box;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+  width: 70%;
+  margin: auto;
+}
+
+.slick-dots {
+  position: absolute;
+  bottom: 10px;
+}
+
+.slick-dots li button:before {
+  font-size: 15px;
+}

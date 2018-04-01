@@ -10,7 +10,7 @@ const TeamInfo = props => {
         </div>
       <div className="right">
         <div>
-          <span className="">
+          <span>
             {props.team.city} {props.team.name}
           </span>
         </div>

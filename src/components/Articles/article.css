@@ -22,15 +22,45 @@
   font-weight: 300;
 }
 
-.articlePostData{
+.articlePostData {
   border: 1px solid #c5c5c5;
   background: #fff;
-  margin: 5px 5px 0 5px;
+  margin: 5px 5px 5px 5px;
   padding: 10px;
   font-size: 14px;
   font-weight: 300;
 }
 
-.articlePostData span{
+.articlePostData span {
   font-weight: 500;
+}
+
+.articleBody {
+  background: #fff;
+  margin: 0 5px;
+  border: 1px solid #c5c5c5;
+  padding: 10px;
+}
+
+.articleBody h1 {
+  font-size: 36px;
+  font-weight: 500;
+  color: #333;
+  margin: 15px 0;
+  text-align: center;
+}
+
+.articleImage {
+  background-size: cover !important;
+  width: 100%;
+  min-height: 500px;
+  background-repeat: no-repeat !important;
+  background-position: top center !important;
+}
+
+.articleText {
+  font-weight: 300;
+  color: #666;
+  line-height: 24px;
+  margin: 15px 0;
 }

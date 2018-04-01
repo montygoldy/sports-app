@@ -31,7 +31,7 @@ class NewsArticles extends Component {
           date={article.date}
           author={article.author}
         />
-        <Body />
+        <Body image={article.image} title={article.title} body={article.body} />
       </div>
     );
   }

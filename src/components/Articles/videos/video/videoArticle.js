@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { URL } from "../../../../config";
 import "../../article.css";
-import Header from './header';
+import Header from "./header";
+import VideoPlayer from "../../../Widgets/VideoPlayer/videoPlayer";
 
 class VideoArticle extends Component {
   state = {
@@ -23,11 +24,14 @@ class VideoArticle extends Component {
 
   render() {
     const { article, team } = this.state;
-    
+
     return (
       <div>
         <Header teamData={team[0]} />
-        <div>2</div>
+        <div className="videoWrapper">
+          <h1>{article.title}</h1>
+          <VideoPlayer url={article.url} />
+        </div>
       </div>
     );
   }

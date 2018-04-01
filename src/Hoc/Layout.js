@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/footer";
-import Home from "../components/Home/Home";
 import "./layout.css";
 
 class Layout extends Component {
@@ -19,7 +18,7 @@ class Layout extends Component {
     return (
       <div>
         <Header showNav={this.state.showNav} toggleNav={this.toggleSideNav} />
-        <Home />
+        {this.props.children}
         <Footer />
       </div>
     );

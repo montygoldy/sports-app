@@ -1,11 +1,12 @@
 import React from "react";
+import TeamInfo from "../../Elements/teamInfo";
 
 const Header = props => {
-  return (
-    <div>
-      1<div>2</div>
-    </div>
-  );
+  const teamInfo = team => {
+    return team ? <TeamInfo team={team} /> : null;
+  };
+
+  return <div>{teamInfo(props.teamData)}</div>;
 };
 
 export default Header;
